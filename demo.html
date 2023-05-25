@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .production-board {
+    margin: auto;
+    width: 84%;
+    height: 1120px;
+}
+.production-list {
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    text-align: center;
+}
+.feature-bar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.filter {
+    font-size: 15px;
+    padding: 0;
+    padding-top: 15px;
+    width: 20%;
+}
+.title-production {
+    font-size: 25px;
+    padding: 0;
+    padding-top: 15px;
+    padding-left: 70px;
+    width: 20%;
+}
+.arrange {
+    padding: 5px 0px;
+    margin-right: 1.2%;
+}
+select {
+    padding: 10px 0px;
+    outline: none;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    padding-right: 28px;
+    text-indent: 0.01px;
+    cursor: pointer;
+}
+.production {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    /* background-color: red; */
+    /* justify-content: space-around; */
+}
+.top-product-option-1 {
+    display: flex;
+}
+.top-product-option-2 {
+    display: flex;
+}
+.top-product-option, .bottom-product-option {
+    display: flex;
+    /* background-color: red; */
+}
+.top-product-option-1 {
+    /* padding: 10px; */
+    /* background-color: red; */
+}
+.img-product {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+}
+.img-product a::before, .img-product a::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute; 
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.5s;
+}
+.img-product a::before {
+    bottom: 2%;
+    left: 2%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    border-left: 1px solid rgba(255, 255, 255, 0.8);
+}
+.img-product a::after {
+    top: 2%;
+    right: 5%;
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    border-right: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.img-product a:hover::before, .img-product a:hover::after {
+    opacity: 1;
+    width: 92.5%;
+    height: 95.7%;
+}
+
+.img-product img {
+    width: 95%;
+    height: auto;
+    /* transform: scale(1); */
+    display: block; 
+    transition: all 0.3s;
+}
+.img-product a:hover img {
+    transform: scale(1.05);
+} 
+.name-product {
+    padding: 10px;
+    margin: auto;
+}
+.name-product a {
+    font-size: 16px;
+}
+.price-product {
+    margin-top: 5%;
+    font-size: 14px
+}
+</style>
+<body>
+    <div class="production-board">
+        <div class="production-list">
+            <div class="feature-bar">
+                <div class="filter">
+                    <span><i class="fa-solid fa-house" style="color: #000000;"></i> <a href="index.html">Trang chủ</a> / <a href="#"><b>Vest nam</b></a></span>
+                </div>
+                <div class="title-production">
+                    <span><b>VEST NAM</b></span>
+                </div>
+                <div class="arrange">
+                    <label for="SortBy">Sắp xếp theo</label>
+                    <select name="" id="SortBy" onchange="sortByPrice(this.value)">
+                        <option value="" selected>Tính năng</option>
+                        <option value="asc">Sắp xếp từ thấp đến cao</option>
+                        <option value="desc">Sắp xếp từ cao đến thấp</option>
+                        <option value="az">Sắp xếp theo tên A-Z</option>
+                        <option value="za">Sắp xếp theo tên Z-A</option>
+                    </select>                    
+                  </div>
+            </div>
+            <div class="production">
+                <div class="top-product-option">
+                    <div class="top-product-option-1">
+                        <div class="product-option" id="product-option-1">
+                            <div class="img-product">
+                                <a href="details-of-production.html"><img src="product-1.jpg" alt="" id="product-img"></a>
+                            </div>
+                            <div class="name-product">
+                                <a href="details-of-production.html"><span>ÁO VEST TUXEDO XANH</span></a>
+                                <div class="price-product" data-price="4.2">
+                                    <b>4,200,000<u>đ</u></b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-option" id="product-option-2">
+                            <div class="img-product">
+                                <a href="#"><img src="product-2.jpg" alt="" id="product-img"></a>
+                            </div>
+                            <div class="name-product">
+                                <a href="#"><span>ÁO VEST GHI KẺ</span></a>
+                                <div class="price-product" data-price = "2.95">
+                                    <b>2,950,000<u>đ</u></b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top-product-option-2">
+                        <div class="product-option" id="product-option-3">
+                            <div class="img-product">
+                                <a href="#"><img src="product-3.jpg" alt="" id="product-img"></a>
+                            </div>
+                            <div class="name-product">
+                                <a href="#"><span>ÁO VEST XANH KẺ VUÔNG</span></a>
+                                <div class="price-product" data-price = "2.95">
+                                    <b>2,950,000<u>đ</u></b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-option" id="product-option-4">
+                            <div class="img-product">
+                                <a href="#"><img src="product-4.jpg" alt="" id="product-img"></a>
+                            </div>
+                            <div class="name-product">
+                                <a href="#"><span>ÁO VEST XANH KẺ Ô</span></a>
+                                <div class="price-product" data-price = "3.3">
+                                    <b>3,300,000<u>đ</u></b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="bottom-product-option">
+                    <div class="bottom-product-option-1">
+                        <div class="product-option" id="product-option-5">
+                            <div class="img-product">
+                                <a href="#"><img src="product-5.jpg" alt="" id="product-img"></a>
+                            </div>
+                            <div class="name-product">
+                                <a href="#"><span>ÁO VEST XANH GHI KẺ</span></a>
+                                <div class="price-product" data-price = "3.1">
+                                    <b>3,100,000<u>đ</u></b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-option" id="product-option-6">
+                            <div class="img-product">
+                                <a href="#"><img src="product-6.jpg" alt="" id="product-img"></a>
+                            </div>
+                            <div class="name-product">
+                                <a href="#"><span>ÁO VEST 2 KHUY ĐEN TRƠN</span></a>
+                                <div class="price-product" data-price = "2.95">
+                                    <b>2,950,000<u>đ</u></b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-product-option-2">
+                        <div class="product-option" id="product-option-7">
+                            <div class="img-product">
+                                <a href="#"><img src="product-7.jpg" alt="" id="product-img"></a>
+                            </div>
+                            <div class="name-product">
+                                <a href="#"><span>ÁO VEST BEIGE SỮA</span></a>
+                                <div class="price-product" data-price = "2.75">
+                                    <b>2,750,000<u>đ</u></b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-option" id="product-option-8">
+                            <div class="img-product">
+                                <a href="#"><img src="product-8.jpg" alt="" id="product-img"></a>
+                            </div>
+                            <div class="name-product">
+                                <a href="#"><span>ÁO VEST XANH KẺ</span></a>
+                                <div class="price-product" data-price = "3.1">
+                                    <b>3,100,000<u>đ</u></b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>>
+    <script>
+        function sortByPrice(option) {
+            var products = document.querySelectorAll('.product-option');
+            var sortedProducts = Array.from(products);
+    
+            switch (option) {
+                case 'asc':
+                    sortedProducts.sort(function(a, b) {
+                        var priceA = parseFloat(a.querySelector('.price-product').getAttribute('data-price'));
+                        var priceB = parseFloat(b.querySelector('.price-product').getAttribute('data-price'));
+                        return priceA - priceB;
+                    });
+                    break;
+                case 'desc':
+                    sortedProducts.sort(function(a, b) {
+                        var priceA = parseFloat(a.querySelector('.price-product').getAttribute('data-price'));
+                        var priceB = parseFloat(b.querySelector('.price-product').getAttribute('data-price'));
+                        return priceB - priceA;
+                    });
+                    break;
+                case 'az':
+                    sortedProducts.sort(function(a, b) {
+                        var nameA = a.querySelector('.name-product a span').textContent.toLowerCase();
+                        var nameB = b.querySelector('.name-product a span').textContent.toLowerCase();
+                        return nameA.localeCompare(nameB);
+                    });
+                    break;
+                case 'za':
+                    sortedProducts.sort(function(a, b) {
+                        var nameA = a.querySelector('.name-product a span').textContent.toLowerCase();
+                        var nameB = b.querySelector('.name-product a span').textContent.toLowerCase();
+                        return nameB.localeCompare(nameA);
+                    });
+                    break;
+                default:
+                    return;
+            }
+    
+            var production = document.querySelector('.production');
+            production.innerHTML = '';
+    
+            sortedProducts.forEach(function(product) {
+                production.appendChild(product);
+            });
+        }
+    </script>
+    
+</body>
+</html>

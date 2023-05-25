@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    body {
+    font-size: 16px;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-family: "Louis Vuitton Web","Helvetica Neue","Helvetica",Arial,sans-serif;
+}
+.home-page {
+    max-width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    height: auto;
+    background-color: white;
+}
+.task-bar {
+    max-width: 100%;
+    height: 110px;
+    position: sticky;
+    z-index: 99;
+    top: 0%;
+    display: grid;
+    grid-template-columns: 46.5% 7% auto;
+    grid-template-rows: 54% auto;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.top-left {
+    max-width: 100%;
+    position: relative;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    padding: 25px 0px;
+    font-size: 14px;
+    border-bottom: 1px solid black;
+}
+.top-left a {
+    margin-left: 10%;
+}
+.top-right {
+    width: 95%;
+    grid-column: 3/4;
+    grid-row: 1/2;
+    padding: 22px 15px;
+    font-size: 18px;
+    border-bottom: 1px solid black;
+    display: grid;
+    grid-template-columns: 71% auto;
+}
+.info {
+    grid-column: 2/3;
+    word-spacing: 28px;
+}
+.info ul {
+    display: flex;
+    list-style-type: none;
+}
+.header-search {
+    grid-column: 1/2;
+    max-width: 100%;
+    text-align: right;
+}
+.header-info {
+    grid-column: 2/3;
+}
+.form-input {
+    margin-top: 0.2%;
+    margin-right: 5%;
+}
+.search-input {
+    width: 30%;
+    height: inherit;
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+.header-search-bar {
+    padding: 0 10px;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    border-left: 1px solid var(--border-color);
+    background-color: transparent;
+}
+.search-icon {
+    font-size: 18px;
+    color: var(--text-color);
+}
+.center {
+    max-width: 100%;
+    grid-column: 2/3;
+    grid-row: 1/2;
+    border-bottom: 1px solid black;
+}
+#logo {
+    width: auto;
+    height: 133%;
+    z-index: 99;
+}
+.nav {
+    grid-column: 1/4;
+    grid-row: 2/3;
+}
+.list {
+    max-width: 100%;
+    position: relative;
+}
+.list a {
+    font-size: 14px;
+}
+.list ul {
+    margin-top: 0.8%;
+}
+.list ul li {
+    position: relative;
+    list-style-type: none;
+    display: inline-block;
+    color: black;
+    padding: 10px 0px;
+    margin-left: 3.5%;
+}
+.list ul li a:hover {
+    color: #A0522D;
+}
+.menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 107%;
+    margin-left: -55%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.menu ul li {
+    width: 130px;
+    background-color: white;
+    padding: 15px;
+    line-height: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.menu a {
+    position: relative;
+}
+.menu ul {
+    position: absolute;
+    margin-left: 0%;
+}
+#menu-1 {
+    margin-left: -90%;
+}
+#menu-1 ul li {
+    width: 150%;
+}
+#menu-2 {
+    margin-left: -50%;
+}
+#menu-2 ul li {
+    width: 200%;
+}
+#menu-3 {
+    margin-left: -128%;
+}
+#menu-3 ul li {
+    width: 200%;
+}
+.list li:hover .menu {
+    display: block;
+}
+#submenu {
+    width: 120%;
+    display: none;
+    position: absolute;
+    background-color: #1874CD;
+    top: 0%;
+    margin-left: 60%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+#submenu ul li {
+    width: 120%;
+}
+.menu li:hover #submenu {
+    display: block;
+}
+.wallpaper-suit {
+    position: relative;
+    height: auto;
+    width: 100%;
+}
+.wallpaper {
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    height: auto;
+}
+#img-1 {
+    animation: hinh-1 9s infinite linear;
+    transition: all .2s ease;
+}
+#img-2 {
+    animation: hinh-2 9s infinite linear;
+    transition: all .2s ease;
+}
+#img-3 {
+    animation: hinh-3 9s infinite linear;
+    transition: all .5s ease;
+}
+.background {
+    max-width: 100%;
+    height: 700px;
+}
+.bars {
+    display: none;
+}
+.main-board {
+    max-width: 100%;
+    margin-bottom: 8%;
+}
+.top-option {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 7%;
+}
+.bottom-option {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 7%;
+    
+}
+
+.option {
+    position: relative;
+    width: 25%;
+}
+.collection-item {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0%;
+    background-repeat: initial;
+}
+.collection-title {
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    font-size: 25px;
+    color: white;
+    opacity: 0;
+    transition: opacity .5s;
+    background: rgba(124, 128, 126, 0.637);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.collection-image {
+    line-height: 0;
+    overflow: hidden;
+}
+.collection-image img {
+    filter: blur(0px);
+    transition: filter 0.3s ease-in;
+    transform: scale(1.1);
+}
+.option:hover .collection-title {
+    opacity: 1;
+}
+
+.option:hover .collection-image img {
+    filter: blur(2px);
+}
+.option-name {
+    position: absolute;
+    top: 60%;
+    left: 36%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.more {
+    border: 3px solid white;
+    font-size: 14px; 
+    padding: 7px; 
+    margin-top: 15px;
+}
+.more:hover {
+    background-color: white;
+    color: black;
+    transition: all .5s
+}
+.messenger {
+    background-color: #256fef;
+    position: fixed;
+    border-radius: 100%;
+    z-index: 80;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    top: 90%;
+    left: 97%;
+}
+.footer {
+    max-width: 100%;
+    height: 320px;
+    margin-top: 0%;
+    box-shadow: 0 -5px 3px -3px #888888;
+}
+.title-information {
+    font-size: 22px;
+    padding: 10px;
+}
+.details {
+    max-width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+.about-company {
+    text-align: center;
+    width: 25%;
+    border-right: 1px solid #cecece;
+    box-shadow: 0px 0px 3px 0px #888888;
+}
+.title-information {
+    text-align: center;
+    padding: 20px;
+}
+.info-student {
+    font-size: 18px;
+    text-align: center;
+}
+.student-picture {
+    margin: auto;
+    width: 100px;
+}
+#student-pic {
+    width: 100%;
+}
+.about-service {
+    display: flex;
+    width: 57%;
+    padding: 0;
+}
+.service {
+    padding-left: 40px;
+}
+.service ul {
+    list-style-type: none;
+    line-height: 30px;
+    padding: 0;
+}
+.service a {
+    color: black;
+    font-size: 12px;
+    position: relative;
+    display: block;
+}
+.service ul li {
+    width: auto;
+    display: flex;
+}
+.service a::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    background-color: black;
+    top: 80%;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+.service a:hover::after {
+    transform: scaleX(1);
+}
+.product {
+    width: auto;
+    padding-left: 40px;
+    padding-right: 10px;
+}
+.product ul {
+    list-style-type: none;
+    width: 110%;
+}
+.product ul li {
+    display: inline-block;
+}
+.product ul li a {
+    color: black;
+    font-size: 12px;
+}
+.details-footer-list {
+    display: flex;
+}
+#service-list ul {
+    padding-left: 0;
+}
+.footer-title {
+    font-size: 14px;
+    padding-top: 20px;
+}
+#footer-title-1 {
+    padding-left: 20px;
+}
+#footer-title-2 {
+    padding-left: 20px;
+}
+.footer-list ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 5px 20px;
+    margin: 0;
+    padding-left: 20px;
+}
+.footer-list ul li {
+    line-height: 30px;
+    width: auto;
+    display: flex;
+}
+.footer-list a {
+    position: relative;
+    display: block;
+}
+.footer-list a::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    background-color: black;
+    top: 80%;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+.footer-list a:hover::after {
+    transform: scaleX(1);
+}
+.news {
+    padding-left: 40px;
+}
+.news ul {
+    list-style-type: none;
+    line-height: 30px;
+    width: 100%;  
+}
+.news a {
+    color: black;
+    font-size: 12px;
+    position: relative;
+    display: block;
+}
+.news ul li {
+    width: auto;
+    display: flex;
+}
+.news a::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    background-color: black;
+    top: 80%;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+}
+.news a:hover::after {
+    transform: scaleX(1);
+}
+.about-contact {
+    width: 20%;
+    background-color: lightgray;
+    height: 80%;
+}
+.contact {
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid silver;
+}
+.contact a {
+    color: black;
+    font-size: 30px;
+    margin-left: 5%;
+}
+.sub-login {
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    font-size: 15px;
+}
+.login 
+{
+    margin-top: 5%;
+}
+.login-bar {
+    width: 60%;
+    height: 32px;
+    border: 1px solid silver;
+    outline: none;
+}
+.submit-button {
+    height: 34px;
+    background-color: black;
+    color: white;
+    margin-left: -20%;
+}
+.foot {
+    background-color: black;
+    color: white;
+    height: 32px;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+}
+@keyframes hinh-1 {
+    0%, 34%, 100% {
+    opacity: 0;
+    }
+    1%, 33% {
+    opacity: 1;
+    }
+}
+@keyframes hinh-2 {
+    0%, 33%, 67%, 100% {
+    opacity: 0;
+    }
+    34%, 66% {
+    opacity: 1;
+    }
+}
+@keyframes hinh-3 {
+    0%, 66%, 100% {
+    opacity: 0;
+    }
+    67%, 99% {
+    opacity: 1;
+    }
+}
+@media screen and (min-width: 1500px) {
+    .menu {
+        top: 95%;
+    }
+    #submenu {
+        margin-left: 59.5%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .top-left {
+        display: none;
+    }
+    .fa-heart {
+        display: none;
+    }
+    .task-bar {
+        height: 70px;
+        grid-template-rows: 100%;
+    }
+    .header-search {
+        display: none;
+    }
+    .center {
+        grid-column: 1/2;
+        border-bottom: none;
+    }
+    #logo {
+        width: auto;
+        height: 100%;
+    }
+    .top-right {
+        grid-column: 2/4;
+        padding-right: 0;
+        border-bottom: none;
+    }
+    .info {
+        word-spacing: 15px;
+    }
+    .list {
+        display: none;
+    }
+    .background {
+        height: 300px;
+    }
+    .bars {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 15%;
+        right: 5%;
+        text-align: right;
+        z-index: 100;
+        font-size: 30px;
+        list-style-type: none;
+    }
+    .fa-bars {
+        position: relative;
+        display: block;
+    }
+    .logo-mobie-list {
+        padding-left: 20px;
+    }
+    .mobie-list {
+        position: absolute;
+        display: none;
+        height: 550px;
+        width: 70%;
+        top: -300%;
+        text-align: left;
+        background-color: #fff;
+        border-right: 1px solid #cecece;
+        box-shadow: 0px 0px 3px 0px #888888;
+        transform: scale(0);
+        transition: transform 0.5s ease;
+    }
+    .active {
+        display: block;
+        transform: scale(1);
+    }
+    .title-mobie-list {
+        display: flex;
+        border-bottom: 1px solid #cecece;
+    }
+    .exit {
+        margin: auto;
+        padding-right: 20px;
+    }
+    .mobie-search {
+        max-width: 100%;
+        text-align: center;
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px solid #cecece;
+    }
+    .mobie-form-input {
+        width: 100%;
+        padding-bottom: 5px;
+    }
+    .mobie-search-input {
+        width: 60%;
+        display: table-cell;
+        height: 24px;
+        padding: 8px 10px;
+        margin: 0;
+        transform: translateX(8px);
+        border: 1px solid #cecece;
+        outline: none;
+        font-size: 15px;
+    }
+    .mobie-search-bar {
+        padding: 8px 10px;
+        transform: translateY(1px);
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        color: #fff;
+        background-color: #000;
+        border-left: 1px solid var(--border-color);
+    }
+    .mobie-search-icon {
+        font-size: 18px;
+        color: #fff;
+        color: var(--text-color);
+    }
+    .option-mobie-list {
+        font-size: 15px;
+    }
+    .option-mobie-list ul {
+        list-style-type: none;
+        line-height: 45px;
+        margin-right: 5%;
+        margin-top: 0;
+    }
+    .option-mobie-list ul li {
+        border-bottom: 1px solid #cecece;
+    }
+    .top-option {
+        flex-direction: column;
+    }
+    .bottom-option {
+        flex-direction: column;
+    }
+    .option {
+        width: 75%;
+        padding: 10px;
+        margin-left: 10%;
+    }
+    #op2 .collection-title {
+        height: 96%;
+        width: 95%;
+        top: 2%;
+        left: 2.5%;
+    }
+    #op3 .collection-title {
+        height: 96%;
+        width: 95%;
+        top: 2%;
+        left: 2.5%;
+    }
+    #op4 .collection-title {
+        height: 96%;
+        width: 95%;
+        top: 2%;
+        left: 2.5%;
+    }
+    .footer {
+        height: 1150px;
+    }
+    .details {
+        flex-direction: column;
+        height: 1120px;
+    }
+    .about-company {
+        width: auto;
+    }
+    .about-service {
+        flex-direction: column;
+    }
+    .product {
+        padding-left: 20px;
+    }
+    .news {
+        padding-left: 20px;
+    }
+    .about-contact {
+        width: auto;
+        height: 20%;
+    }
+    .submit-button {
+        margin-left: -10%;
+    }
+    .foot {
+        width: auto;
+    }
+}
+@media screen and (max-width: 1199px) and (min-width: 481px) {
+    .home-page {
+        height: auto;
+    }
+    .top-left {
+        border-bottom: none;
+    }
+    .fa-heart {
+        display: block;
+    }
+    .task-bar {
+        height: 70px;
+        grid-template-rows: 100%;
+        grid-template-columns: 40% 30% auto;
+    }
+    .background {
+        height: 300px;
+    }
+    .header-search {
+        display: none;
+    }
+    .center {
+        grid-column: 2/3;
+        border-bottom: none;
+        text-align: center;
+    }
+    #logo {
+        width: auto;
+        height: 100%;
+    }
+    .top-right {
+        grid-column: 3/4;
+        padding-right: 0;
+        border-bottom: none;
+
+        grid-template-columns: 100%;
+    }
+    .info {
+        grid-column: 1/2;
+        display: flex;
+        margin: auto;
+    }
+    .info a {
+        padding-left: 30px;
+    }
+    .list {
+        display: none;
+    }
+    .background {
+        height: 300px;
+    }
+    .bars {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 20%;
+        right: 5%;
+        text-align: right;
+        z-index: 100;
+        font-size: 30px;
+        list-style-type: none;
+    }
+    .fa-bars {
+        position: relative;
+        display: block;
+    }
+    .logo-mobie-list {
+        padding-left: 20px;
+    }
+    .mobie-list {
+        position: absolute;
+        display: none;
+        height: 550px;
+        width: 400px;
+        top: -400%;
+        text-align: left;
+        padding-left: 10px;
+        background-color: #fff;
+        border-right: 1px solid #cecece;
+        box-shadow: 0px 0px 3px 0px #888888;
+        transform: scale(0);
+        transition: transform 0.5s ease;
+    }
+    .active {
+        display: block;
+        transform: scale(1);
+    }
+    .title-mobie-list {
+        display: flex;
+        border-bottom: 1px solid #cecece;
+    }
+    .exit {
+        margin: auto;
+        padding-right: 20px;
+    }
+    .mobie-search {
+        max-width: 100%;
+        text-align: center;
+        display: flex;
+        padding: 10px;
+        border-bottom: 1px solid #cecece;
+    }
+    .mobie-form-input {
+        width: 100%;
+        padding-bottom: 5px;
+    }
+    .mobie-search-input {
+        width: 60%;
+        display: table-cell;
+        height: 24px;
+        padding: 8px 10px;
+        margin: 0;
+        transform: translateX(8px);
+        border: 1px solid #cecece;
+        outline: none;
+        font-size: 15px;
+    }
+    .mobie-search-bar {
+        padding: 8px 10px;
+        transform: translateY(1px);
+        height: 100%;
+        border: none;
+        border-radius: 0;
+        color: #fff;
+        background-color: #000;
+        border-left: 1px solid var(--border-color);
+    }
+    .mobie-search-icon {
+        font-size: 18px;
+        color: #fff;
+        color: var(--text-color);
+    }
+    .option-mobie-list {
+        font-size: 15px;
+    }
+    .option-mobie-list ul {
+        list-style-type: none;
+        line-height: 45px;
+        margin-right: 5%;
+        margin-top: 0;
+    }
+    .option-mobie-list ul li {
+        border-bottom: 1px solid #cecece;
+    }
+    .option-name {
+        left: 35%;
+    }
+    .title {
+        font-size: 15px;
+    }
+    .more {
+        font-size: 10px;
+    }
+    .footer {
+        height: 800px;
+    }
+    .details {
+        flex-direction: column;
+        height: 758px;
+    }
+    .about-company {
+        width: auto;
+    }
+    .about-service {
+        width: auto;
+    }
+    .service {
+        width: 25%;
+        padding-left: 0;
+    }
+    .product {
+        padding-left: 0px;
+    }
+    .news {
+        padding-left: 20px;
+    }
+    .about-contact {
+        width: auto;
+        height: auto;
+    }
+    .login {
+        margin-top: 2%;
+    }
+    .submit-button {
+        margin-left: -10%;
+    }
+    .foot {
+        margin-top: 0;
+    }
+}
+</style>
+<body>
+    <div class="home-page">
+        <div class="task-bar">
+            <div class="top-left">
+                <a href="#"><i class='fas fa-phone'></i><span>&nbsp;&nbsp;&nbsp;+84   123456789</span></a>
+            </div>
+            <div class="center">
+                <a href="index.html"><img src="Logo-3.png" alt="" id="logo"></a>
+            </div>
+            <div class="top-right">
+                <div class="header-search">
+                    <form action="#" class="form-input">
+                        <input type="text" placeholder="Tìm kiếm sản phẩm" class="search-input" value="">
+                        <button type="button" class="header-search-bar">
+                            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="info">
+                    <a href="#"><i class="fa-regular fa-heart"></i></a>
+                    <a href="log-in.html"><i class="fa-regular fa-user"></i></a>
+                    <a href="storage.html"><i class="fa-solid fa-bag-shopping"></i></a>
+                </div>
+            </div>
+            <div class="nav">
+                <div class="list">
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li>|</li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li id="dropdown"><a href="#">Các thương hiệu</a>
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#">Brioni</a></li>
+                                    <li><a href="#">Canali</a></li>
+                                    <li><a href="#">Zegna</a></li> <br>
+                                    <li><a href="#">Ravazzolo</a></li> <br>
+                                    <li><a href="#">Hugo Boss</a></li> <br>
+                                    <li><a href="#">Belluni</a></li>
+                                    <li><a href="production-list.html">Adam</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li id="dropdown"><a href="production-list.html">Sản phẩm</a>
+                            <div class="menu" id="menu-1">
+                                <ul>
+                                    <li><a href="production-list.html">Vest</a></li>
+                                    <li><a href="production-list.html">Suit</a></li>
+                                    <li><a href="production-list.html">Tuxedo</a></li>
+                                    <li id="dropdown"><a href="#">Áo</a>
+                                        <div class="menu" id="submenu">
+                                            <ul>
+                                                <li><a href="#">Áo thun trơn</a></li>
+                                                <li><a href="#">Áo polo</a></li>
+                                                <li><a href="#">Sơ mi tay ngắn</a></li>
+                                                <li><a href="#">Sơ mi tay dài</a></li>
+                                                <li><a href="#">Áo khoác</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li id="dropdown"><a href="#">Quần</a>
+                                        <div class="menu" id="submenu">
+                                            <ul>
+                                                <li><a href="#">Quần tây</a></li>
+                                                <li><a href="#">Quần short</a></li>
+                                                <li><a href="#">Quần jeans</a></li>
+                                                <li><a href="#">Quần kaki</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="#">Giày tây</a></li>
+                                    <li id="dropdown"><a href="#">Phụ kiện</a>
+                                        <div class="menu" id="submenu">
+                                            <ul>
+                                                <li><a href="#">Vớ/Tất</a></li>
+                                                <li><a href="#">Caravat</a></li>
+                                                <li><a href="#">Quần lót</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li id="dropdown"><a href="#">Hệ thống cửa hàng</a>
+                            <div class="menu" id="menu-2">
+                                <ul>
+                                    <li><a href="#">TP.Hồ Chí Minh</a></li> 
+                                    <li><a href="#">Hà Nội</a></li>
+                                    <li><a href="#">Đà Nẵng</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li id="dropdown"><a href="#">Dịch vụ</a>
+                            <div class="menu" id="menu-3">
+                                <ul>
+                                    <li><a href="#">Bảo hành</a></li> 
+                                    <li><a href="#">Đón khách hàng</a></li>
+                                    <li><a href="#">Lấy số đo tại nhà</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">Khuyến mãi</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="background">
+            <div class="bars">
+                <li>
+                    <a href="#" id="mobie-dropdown"><i class="fa-solid fa-bars" style="color: #000000;"></i></a>
+                    <div class="mobie-list" id="mobie-list">
+                        <div class="title-mobie-list">
+                            <div class="logo-mobie-list"><a href="index.html"><img src="Logo-3.png" alt="" style="width: 24%; margin-top: 1%;"></a></div>
+                            <div class="exit"><a href="#"><i class="fa-solid fa-xmark" style="color: #000000; font-size: 22px;" id="exit-icon"></i></a></div>
+                        </div>
+                        <div class="mobie-search">
+                            <form action="#" class="mobie-form-input">
+                                <input type="text" placeholder="Tìm kiếm sản phẩm" class="mobie-search-input" value="">
+                                <button type="button" class="mobie-search-bar">
+                                    <i class="mobie-search-icon fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="option-mobie-list">
+                            <ul>
+                                <li><a href="index.html">Trang chủ</a></li>
+                                <li><a href="#">Giới thiệu</a></li>
+                                <li ><a href="production-list.html">Sản phẩm</a></li>
+                                <li ><a href="#">Hệ thống cửa hàng</a></li>
+                                <li><a href="#">Chính sách đổi trả</a></li>
+                                <li><a href="#">Dịch vụ</a></li>
+                                <li><a href="#">Khuyến mãi</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </div>            
+            <div class="wallpaper-suit">
+                <img src="background-greysuit.jpg" alt="" class="wallpaper" id="img-1">
+                <img src="background-suit-tom-cruise.jpg" alt="" class="wallpaper" id="img-2">
+                <img src="background.jpg" alt="" class="wallpaper" id="img-3">
+            </div>
+        </div>
+        <div class="messenger">
+            <a href="#"><i class="fa-brands fa-facebook-messenger" style="color: #ffffff; font-size: 35px;"></i></a>
+        </div>
+        <div class="main-board">
+            <div class="top-option">
+                <div class="option" id="op1">
+                    <div class="collection-item">
+                        <a href="production-list.html" class="collection-title" >
+                            <div class="option-name">
+                                <span class="title" id="title-1">VEST</span>
+                                <span class="more" id="more-1">XEM THÊM</span>
+                            </div>
+                        </a>
+                        <div class="collection-image">
+                            <img src="suit (2).png" alt="" style="width: 100%; height: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="option" id="op2">
+                    <a href="#" class="collection-title">
+                        <div class="option-name">
+                            <span class="title" id="title-2">GIÀY TÂY</span>
+                            <span class="more" id="more-2">XEM THÊM</span>
+                        </div>
+                    </a>
+                    <div class="collection-image">
+                        <img src="shose.png" alt="" style="width: 100%; height: 100%;">
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-option">
+                <div class="option" id="op3">
+                    <a href="#" class="collection-title">
+                        <div class="option-name">
+                            <span class="title" id="title-3">ÁO POLO</span>
+                            <span class="more" id="more-3">XEM THÊM</span>
+                        </div>
+                    </a>
+                    <div class="collection-image">
+                        <img src="polo.jpg" alt="" style="width: 100%; height: 100%;">
+                    </div>
+                </div>
+                <div class="option" id="op4">
+                    <a href="#" class="collection-title">
+                        <div class="option-name">
+                            <span class="title" id="title-4">SƠ MI</span>
+                            <span class="more" id="more-4">XEM THÊM</span>
+                        </div>
+                    </a>
+                    <div class="collection-image">
+                        <img src="shirt.jpg" alt="" style="width: 100%; height: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="details">
+                <div class="about-company">
+                    <div class="title-information"><span><b>THÔNG TIN SINH VIÊN</b></span></div>
+                    <div class="student-picture"><img src="NguyenQuocGiaHuy_2001215823.jpg" alt="" id="student-pic"></div>
+                    <div class="info-student">
+                        <span>Họ và tên: Nguyễn Quốc Gia Huy</span> <br>
+                        <span>MSSV: 2001215823</span> <br>
+                        <span>Đồ án: Thiết kế Web thời trang nam</span>
+                    </div>
+                </div>
+                <div class="about-service">
+                    <div class="service">
+                        <div class="footer-title"><span><b>DỊCH VỤ KHÁCH HÀNG</b></span></div>
+                        <div class="footer-list" id="service-list">
+                            <ul>
+                                <li><a href="production-list.html">Sản phẩm</a></li>
+                                <li><a href="#">Hệ thống cửa hàng</a></li>
+                                <li><a href="#">Bảo hành</a></li>
+                                <li><a href="#">Đưa, đón khách hàng</a></li>
+                                <li><a href="#">Lấy số đo tại nhà</a></li>
+                                <li><a href="#">Chính sách đổi trả</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="footer-title" id="footer-title-1"><span><b>NHÓM SẢN PHẨM</b></span></div>
+                        <div class="details-footer-list">
+                            <div class="footer-list" id="footer-list-1">
+                                <ul>
+                                    <li><a href="production-list.html">Vest</a></li>
+                                    <li><a href="production-list.html">Suit</a></li>
+                                    <li><a href="production-list.html">Tuxedo</a></li>
+                                    <li><a href="#">Caravat</a></li>
+                                </ul>
+                            </div>
+    
+                            <div class="footer-list" id="footer-list-2">
+                                <ul> 
+                                    <li><a href="#">Áo polo</a></li>
+                                    <li><a href="#">Áo sơ mi</a></li>
+                                    <li><a href="#">Áo khoác</a></li>
+                                    <li><a href="#">Giày tây</a></li>
+                                </ul>
+                            </div>
+    
+                            <div class="footer-list" id="footer-list-3">
+                                <ul>
+                                    <li><a href="#">Quần tây</a></li>
+                                    <li><a href="#">Quần short</a></li>
+                                    <li><a href="#">Quần jeans</a></li>
+                                    <li><a href="#">Quần kaki</a></li>
+                                </ul>
+                           </div>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <div class="footer-title" id="footer-title-2"><span><b>TIN TỨC</b></span></div>
+                        <div class="footer-list">
+                            <ul>
+                                <li><a href="#">HL Company và báo chí</a></li>
+                                <li><a href="#">Sao Việt và khách hàng</a></li>
+                                <li><a href="#">HL Company's Videos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-contact">
+                    <div class="contact">
+                        <span style="font-size: 15px;"><b>GHÉ THĂM HL COMPANY TRÊN</b></span> <br>
+                        <a href="https://www.facebook.com/"><i class="fa fa-facebook" style="margin-top: 5%;"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fa fa-youtube-play"></i></a>
+                        <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.twitter.com/"><i class="fa fa-twitter"></i></a>
+                    </div>
+                    <div class="sub-login">
+                        <span><b>ĐĂNG KÝ NHẬN THÔNG TIN MỚI TỪ HL COMPANY</b></span>
+                        <form action="" method="post" class="login">
+                            <input type="email" placeholder="Nhập email của bạn tại đây" class="login-bar">
+                            <button type="submit" class="submit-button">ĐĂNG KÝ</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="foot">
+                <span>Copyright &copy; 2023 by HL Company</span>
+            </div>
+        </div>
+    </div>
+</html>
+</body>
+<script>
+    const barsIcon = document.querySelector(".fa-bars");
+    const mobieList = document.querySelector(".mobie-list");
+
+    barsIcon.addEventListener("click", function() {
+    mobieList.classList.toggle("active");
+    });
+
+    document.getElementById('exit-icon').addEventListener('click', function() {
+    mobieList.classList.remove("active");
+    });
+</script>
+</html>
